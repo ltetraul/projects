@@ -12,3 +12,5 @@ This is a data mining project I worked on using a NBA 2K roster dataset: https:/
 I designed a ticketing system application and ran usability testing for it for an HCI class: https://github.com/ltetraul/projects/blob/main/TicketPicket.pdf
 
 This is another database I created that contains NBA player information: https://github.com/ltetraul/projects/tree/main/NBAdb
+
+For my capstone, I developed a simple web application for my dad's renovation business. I started by cleaning up all the homeowner data that he has stored over the years and analyizing it. I then gathered my insights and displayed them on a website that also contains an interactive map that shows all of the houses he has renovated on a map: https://github.com/ltetraul/projects/tree/main/capstone
