@@ -1,0 +1,97 @@
+CREATE VIEW PlayerStatsView AS
+SELECT
+    p.playerID,
+    p.firstName,
+    p.lastName,
+    s.careerPPG,
+    s.careerRPG,
+    s.careerSPG
+FROM
+    player p
+JOIN
+    stats s ON p.playerID = s.playerID;
+
+This view takes a few of the most important stats and puts them with the players full name using the playerID. This makes it easier for the user to see each players name and match it with the main stats that they average.
+
+CREATE VIEW PositionPhysicalsView AS
+SELECT
+    r.firstName,
+    r.lastName,
+    p.positionName,
+    h.height,
+    h.weight,
+    h.wingspan
+FROM
+    position p
+JOIN
+    physicals h ON p.positionID = h.positionID
+JOIN
+    player r ON h.playerID = r.playerID;
+
+This view combines 3 different tables to show the player's full name, what position they play, as well as their physical attributes (height, weight, and wingspan). This is helpful because the user sees all of the players that play a certain position next to each other and can then easily compare their sizes.
+
+CREATE TRIGGER update_lastModified
+BEFORE UPDATE ON player
+FOR EACH ROW
+BEGIN
+    SET NEW.lastModified = CURRENT_TIMESTAMP;
+END;
+
+I added a new column to the player table called lastModified to keep track of when something about a player has changed. This trigger is useful because when things change such as a player's jersey number or the total amount of championships or MVP's they have, it is important to know when it happened. To test it out I updated LeBron's jersey number from 6 to 23, because he has gone back and forth between the two numbers a lot and he is currently wearing number 23 this season after wearing the number 6 in previous years.
+
+SELECT player.firstName, player.lastName, team.teamName
+FROM player
+JOIN team ON player.teamID = team.teamID;
+
+This query connects the player and team tables to get each player's first and last names and their respective teams
+
+SELECT player.positionID, player.totalMVPAwards, physicals.height, stats.careerPPG
+FROM player
+JOIN physicals ON player.playerID = physicals.playerID
+JOIN stats ON player.playerID = stats.playerID;
+
+This query joins 3 different tables and shows what position each player plays and their height along with how successful they were, considering total MVP's and their career PPG average.
+
+SELECT MAX(careerPPG) AS max_PPG
+FROM stats;
+
+This query finds the maximum amount of career points per game scored out of every player listed in the database. The result is 30.1, which is Michael Jordan's average.
+
+SELECT AVG(weight) AS averageWeight
+FROM physicals;
+
+This query finds the average weight of an NBA player, which turns out to be a little over 222 pounds. I found this interesting because it seems to be well over the typical weight of a regular person and it shows how much bigger most of these athletes really are.
+
+SELECT firstName, lastName, positionID
+FROM player
+WHERE positionID = '501' OR positionID = '505';
+
+This query lists all of the players that are either a point guard or a center. I chose to do this because it seemed like a lot of the best players from each franchise were one of these two positions. I also thought it would be interesting to see some potential pairings that would be a major problem for the rest of the league if they were on the same team.
+
+SELECT lastName, jerseyNum
+FROM player
+WHERE jerseyNum BETWEEN 30 AND 35;
+
+This query shows the back of each player's jersey that has a number between 30 and 35, including those two numbers. The reason I did this was to show how many great players wore a number in such a small range for some reason.
+
+SELECT playerID, careerAPG
+FROM stats
+ORDER BY careerAPG DESC
+LIMIT 5;
+
+This query highlights the five players who averaged the most assists per game throughout their careers. It is no surprise to me that the list includes Magic, Stockton, Isiah, Kidd and Nash, all outstanding passers.
+
+SELECT COUNT(*) AS number23
+FROM player
+WHERE jerseyNum = 23;
+
+This query counts how many players wear the number 23. I think it would be useful because Jordan has influenced so many players to choose the number and it has to be one of the most common jersey numbers so it would be interesting to know the total, and you could easily compare it with any other jersey numbers.
+
+SELECT position.positionName, COUNT(*) AS positionCount
+FROM player
+JOIN position ON player.positionID = position.positionID
+GROUP BY position.positionName
+ORDER BY FIELD(position.positionName, 'PG', 'SG', 'SF', 'PF', 'C');
+
+
+This query shows the entire distribution of the positions that the players play. I used the order by field operation to put the positions in the right order that makes sense instead of just alphabetical order so that it is easier to look at and understand that the most frequent positions are on the ends.
