@@ -6,3 +6,5 @@ I created a new metric that compares any receiver's final separation from the de
 This is my Fantasy Football Database Management System that I designed and developed using Microsoft Access: https://github.com/ltetraul/projects/tree/main/ffdb
 
 I also worked on this interactive dashboard for a Streamlit app that looks at the connection between music and mental health: https://h501-finalproject.streamlit.app/Interactive
+
+This is a data mining project I worked on using a NBA 2K roster dataset: https://github.com/ltetraul/projects/tree/main/DataMining2k 
