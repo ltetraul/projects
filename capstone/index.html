@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>TT Renovations | Project Insights</title>
+    <style>
+        :root {
+            --primary-color: #333;
+            --accent-color: #555;
+            --text-color: #222;
+            --bg-color: #f5f5f5;
+            --card-bg: #fff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #ffffff;
+            box-shadow: var(--shadow);
+        }
+
+        .logo {
+            height: 60px;
+            margin-right: 20px;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background-color: #ffffff;
+            box-shadow: var(--shadow);
+        }
+
+        .tab-button {
+            padding: 14px 25px;
+            font-size: 16px;
+            font-weight: 500;
+            border: none;
+            background: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--accent-color);
+        }
+
+        .tab-button:hover,
+        .tab-button.active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            background-color: #ececec;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 40px 20px;
+            text-align: center;
+            background-color: var(--card-bg);
+            margin: 30px auto;
+            width: 100%;
+            max-width: none;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+
+        .tab-content.active {
+            display: block;
+        }
+
+        h1 {
+            font-size: 26px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        iframe {
+            width: 100%;
+            max-width: 900px;
+            height: 500px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .zip-image {
+            width: 90%;
+            max-width: 700px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .large-chart {
+            width: 100%;
+            max-width: 2000px;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+        }
+
+
+        .caption {
+            font-size: 15px;
+            color: #777;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .title {
+                font-size: 22px;
+            }
+
+            .tab-button {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            iframe,
+            .zip-image,
+            .large-chart {
+                width: 100%;
+            }
+
+            .tab-content {
+                margin: 20px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <img src="TTR.png" alt="TT Renovations Logo" class="logo">
+    <div class="title">TT Renovations</div>
+</div>
+
+<div class="tabs">
+    <button class="tab-button active" onclick="showTab('map')">Project Map</button>
+    <button class="tab-button" onclick="showTab('zip')">Zip Code Bar Chart</button>
+    <button class="tab-button" onclick="showTab('expenses')">Expenses Box Plot</button>
+    <button class="tab-button" onclick="showTab('type')">Work Type Chart</button>
+    <button class="tab-button" onclick="showTab('totals')">Trends of Expense Totals</button>
+
+</div>
+
+<div id="map" class="tab-content active">
+    <h1>Project Map</h1>
+    <p>Explore all the homes we have worked on over the years.</p>
+    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Mp8yu_Xu5nCL9A1WBsRkUUiS8DqDHjo&ehbc=2E312F&noprof=1"></iframe>
+</div>
+
+<div id="zip" class="tab-content">
+    <h1>Zip Code Distribution</h1>
+    <img src="zipcodes.png" alt="Zip Code Bar Chart" class="zip-image">
+    <p class="caption">This bar chart highlights the areas where TT Renovations has completed the most projects.</p>
+</div>
+
+<div id="expenses" class="tab-content">
+    <h1>Expenses Overview</h1>
+    <img src="expenses.png" alt="Expenses Box Plot" class="zip-image">
+    <p class="caption">This box plot shows the distribution of expenses for each project.</p>
+</div>
+
+<div id="type" class="tab-content">
+    <h1>Work Types</h1>
+    <img src="worktypes.png" alt="Work Type Bar Chart" class="zip-image large-chart">
+    <p class="caption">This chart presents which types of work are the most common at TT Renovations.</p>
+</div>
+
+<div id="totals" class="tab-content">
+    <h1>Expense Totals By Year</h1>
+    <img src="totals.png" alt="Expense Totals Line" class="zip-image">
+    <p class="caption">This line graph displays the trends that TT Renovations has followed throughout the years since 2012.</p>
+</div>
+
+<script>
+    function showTab(id) {
+        const contents = document.querySelectorAll('.tab-content');
+        const buttons = document.querySelectorAll('.tab-button');
+        contents.forEach(content => content.classList.remove('active'));
+        buttons.forEach(button => button.classList.remove('active'));
+
+        document.getElementById(id).classList.add('active');
+        document.querySelector(`.tab-button[onclick="showTab('${id}')"]`).classList.add('active');
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
