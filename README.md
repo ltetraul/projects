@@ -15,6 +15,8 @@ This is another database I created that contains NBA player information: https:/
 
 For my capstone, I developed a simple web application for my dad's renovation business. I started by cleaning up all the homeowner data that he has stored over the years and analyizing it. I then gathered my insights and displayed them on a website that also contains an interactive map that shows all of the houses he has renovated on a map: https://github.com/ltetraul/projects/tree/main/capstone
 
+This is a story I made in Tableau about unexpected NBA player performances over the last 40 years: https://public.tableau.com/app/profile/lucas.tetrault/viz/Book1_17690299310950/Story1 
+
 I am skilled in Excel, Python, R, and SQL. I have some experience in other coding languages as well such as PHP, HTML/CSS, and JavaScript.
 
 LinkedIn: https://www.linkedin.com/in/lucas-tetrault/
