@@ -1,6 +1,12 @@
 # projects
 This is a collection of class projects that I have completed during my time at Indiana University. I recently graduated with a bachelor's degree in Informatics and a minor in Music and am currently pursuing my master's in Sports Data Analytics here at IU Indianapolis.
 
+I worked with a wearable performance tech company called PlayerData to help them better understand their soccer/football data and identify any interesting trends or insights.
+
+I explored an unexpected NBA performance dataset and published a quarto website to rpubs that displays all of my visualizations and findings within the data.
+
+I published an article on Medium called "The Game Within The Game: Visualizing Off-Ball Movement Analytics in Professional Basketball".
+
 I created a new metric that compares any receiver's final separation from the defense with the expected separation for the 2026 NFL Big Data Bowl: https://www.kaggle.com/code/lucastetrault/nfl-big-data-bowl-phase-3/notebook
 
 This is my Fantasy Football Database Management System that I designed and developed using Microsoft Access: https://github.com/ltetraul/projects/tree/main/ffdb
